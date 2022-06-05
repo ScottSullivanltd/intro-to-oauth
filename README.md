@@ -1,8 +1,8 @@
 # README
 
-## Ref:  https://github.com/omniauth/omniauth
+### Ref:  https://github.com/omniauth/omniauth
 
-## Ref: https://github.com/zquestz/omniauth-google-oauth2
+### Ref: https://github.com/zquestz/omniauth-google-oauth2
 
 # OmniAuth Google OAuth2 Strategy
 Strategy to authenticate with Google via OAuth2 in OmniAuth.
@@ -15,6 +15,7 @@ For more details, read the Google docs: https://developers.google.com/accounts/d
 Add to your Gemfile:
 
 `gem 'omniauth-google-oauth2'`
+
 Then bundle install.
 
 ### Google API Setup
@@ -26,10 +27,12 @@ Wait 10 minutes for changes to take effect.
 ## Usage
 Here's an example for adding the middleware to a Rails app in config/initializers/omniauth.rb:
 
-`Rails.application.config.middleware.use OmniAuth::Builder do
+```
+Rails.application.config.middleware.use OmniAuth::Builder do
   provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET']
 end
-OmniAuth.config.allowed_request_methods = %i[get]`
+OmniAuth.config.allowed_request_methods = %i[get]
+```
 
 You can now access the OmniAuth Google OAuth2 URL: /auth/google_oauth2
 
@@ -39,7 +42,8 @@ NOTE: While developing your application, if you change the scope in the initiali
 
 Here's an example of a possible configuration where the strategy name is changed, the user is asked for extra permissions, the user is always prompted to select their account when logging in and the user's profile picture is returned as a thumbnail:
 
-`Rails.application.config.middleware.use OmniAuth::Builder do
+```
+Rails.application.config.middleware.use OmniAuth::Builder do
   provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'],
     {
       scope: 'userinfo.email, userinfo.profile, http://gdata.youtube.com',
@@ -47,7 +51,8 @@ Here's an example of a possible configuration where the strategy name is changed
       image_aspect_ratio: 'square',
       image_size: 50
     }
-end`
+end
+```
 
 ## Auth Hash
 Access an authentication hash available in the callback with `request.env['omniauth.auth']:`
