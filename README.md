@@ -4,6 +4,8 @@
 
 ### Ref: https://github.com/zquestz/omniauth-google-oauth2
 
+** The following is a snippet copied from `zquestz` README **
+
 # OmniAuth Google OAuth2 Strategy
 Strategy to authenticate with Google via OAuth2 in OmniAuth.
 
